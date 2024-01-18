@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 22:19:37 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/18 22:34:51 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:41:47 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_list	*ft_lstnew(int integer)
 		return (NULL);
 	node->integer = integer;
 	node->next = NULL;
+	node->last = node;
 	return (node);
 }
 
@@ -50,8 +51,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*ptr;
-
 	if (!lst || !new)
 		return ;
 	if (!*lst)
@@ -59,14 +58,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		ft_lstadd_front(lst, new);
 		return ;
 	}
-	ptr = *lst;
-	while (ptr)
-	{
-		if (!ptr->next)
-		{
-			ptr->next = new;
-			break ;
-		}
-		ptr = ptr->next;
-	}
+	(*lst)->last->next = new;
+	(*lst)->last = new;
 }

@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:49:16 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/18 22:57:41 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:52:56 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,6 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	verify(argv + 1);
 	push(argv + 1, &stack_a);
-
-	t_list *ptr = stack_a;
-	while (ptr)
-	{
-		printf("%d, ", ptr->integer);
-		ptr = ptr->next;
-	}
-
+	ft_lstclear(&stack_a);
 	return (EXIT_SUCCESS);
 }
