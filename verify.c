@@ -6,11 +6,12 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:01:55 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/17 19:58:18 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:54:26 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 static int	figure(char *str)
 {
@@ -26,11 +27,23 @@ static int	figure(char *str)
 	return ((str[i] >= 9 && str[i] <= 13) || str[i] == 32 || str[i] == '\0');
 }
 
-void	verify_numlist(char **input)
+static int	integer(char *str)
+{
+	long	integer;
+
+	integer = satoi(str);
+	if (integer > INT_MAX || integer < INT_MIN)
+		return (0);
+	return (1);
+}
+
+static void	verify_category(char **input, int (*verifier)(char *substr))
 {
 	int	i;
 	int	j;
 
+	if (!verifier)
+		return ;
 	i = 0;
 	while (input[i])
 	{
@@ -39,7 +52,7 @@ void	verify_numlist(char **input)
 		{
 			while ((input[i][j] >= 9 && input[i][j] <= 13) || input[i][j] == 32)
 				j++;
-			if (!figure(&input[i][j]))
+			if (!verifier(&input[i][j]))
 				exitf();
 			if (input[i][j] == '-' || input[i][j] == '+')
 				j++;
@@ -50,4 +63,10 @@ void	verify_numlist(char **input)
 		}
 		i++;
 	}
+}
+
+void	verify(char **input)
+{
+	verify_category(input, figure);
+	verify_category(input, integer);
 }

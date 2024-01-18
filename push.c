@@ -6,13 +6,13 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:03:14 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/17 20:07:05 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:20:05 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(char **numlist, t_list **stack)
-{
+// void	push(char **numlist, t_list **stack)
+// {
 	
-}
+// }
