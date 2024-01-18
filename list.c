@@ -6,12 +6,25 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 22:19:37 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/18 23:41:47 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/19 00:18:38 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
+
+int	ft_lstsize(t_list *lst)
+{
+	int	cnt;
+
+	cnt = 0;
+	while (lst)
+	{
+		cnt++;
+		lst = lst->next;
+	}
+	return (cnt);
+}
 
 void	ft_lstclear(t_list **lst)
 {
