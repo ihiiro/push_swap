@@ -1,48 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verify.c                                           :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 18:01:55 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/18 23:55:03 by yel-yaqi         ###   ########.fr       */
+/*   Created: 2024/01/17 20:03:14 by yel-yaqi          #+#    #+#             */
+/*   Updated: 2024/01/19 00:06:46 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <limits.h>
+#include "../push_swap.h"
 
-static int	figure(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (str[i] < '0' || str[i] > '9')
-		return (0);
-	while (str[i] >= '0' && str[i] <= '9')
-		i++;
-	return ((str[i] >= 9 && str[i] <= 13) || str[i] == 32 || str[i] == '\0');
-}
-
-static int	integer(char *str)
-{
-	long	integer;
-
-	integer = satoi(str);
-	if (integer > INT_MAX || integer < INT_MIN)
-		return (0);
-	return (1);
-}
-
-static void	verify_category(char **input, int (*verifier)(char *))
+static void	check_push(char **input, t_list **lst, int (*op)(char *, t_list **))
 {
 	int	i;
 	int	j;
 
-	if (!verifier)
+	if (!op)
 		return ;
 	i = 0;
 	while (input[i])
@@ -52,7 +27,7 @@ static void	verify_category(char **input, int (*verifier)(char *))
 		{
 			while ((input[i][j] >= 9 && input[i][j] <= 13) || input[i][j] == 32)
 				j++;
-			if (!verifier(&input[i][j]))
+			if (!op(&input[i][j], lst))
 				exitf();
 			if (input[i][j] == '-' || input[i][j] == '+')
 				j++;
@@ -65,17 +40,39 @@ static void	verify_category(char **input, int (*verifier)(char *))
 	}
 }
 
-void	verify(char **input)
+static int	uniq(int target, t_list *lst)
 {
-	int	i;
-
-	i = 0;
-	while (input[i])
+	while (lst)
 	{
-		if (input[i][0] == '\0')
-			exitf();
-		i++;
+		if (target == lst->integer)
+			return (0);
+		lst = lst->next;
 	}
-	verify_category(input, figure);
-	verify_category(input, integer);
+	return (1);
+}
+
+static int	pusher(char *str, t_list **stack)
+{
+	int		integer;
+	t_list	*ptr;
+
+	ptr = *stack;
+	integer = satoi(str);
+	if (!ptr)
+		ft_lstadd_back(stack, ft_lstnew(integer));
+	else
+	{
+		if (!uniq(integer, *stack))
+		{
+			ft_lstclear(stack);
+			return (0);
+		}
+		ft_lstadd_back(stack, ft_lstnew(integer));
+	}
+	return (1);
+}
+
+void	push(char **numlist, t_list **stack)
+{
+	check_push(numlist, stack, pusher);
 }
