@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:01:55 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/18 21:54:26 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:53:04 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	integer(char *str)
 	return (1);
 }
 
-static void	verify_category(char **input, int (*verifier)(char *substr))
+static void	verify_category(char **input, int (*verifier)(char *))
 {
 	int	i;
 	int	j;
@@ -67,6 +67,15 @@ static void	verify_category(char **input, int (*verifier)(char *substr))
 
 void	verify(char **input)
 {
+	int	i;
+
 	verify_category(input, figure);
+	i = 0;
+	while (input[i])
+	{
+		if (input[i][0] == '\0')
+			exitf();
+		i++;
+	}
 	verify_category(input, integer);
 }

@@ -6,13 +6,13 @@
 #    By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 17:42:48 by yel-yaqi          #+#    #+#              #
-#    Updated: 2024/01/18 21:49:30 by yel-yaqi         ###   ########.fr        #
+#    Updated: 2024/01/18 22:20:28 by yel-yaqi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
-PUSH_SWAP_TOOLS = verify.c exitf.c push.c satoi.c
+PUSH_SWAP_TOOLS = verify.c exitf.c push.c satoi.c list.c
 
 all: $(NAME)
 $(NAME): main.c $(PUSH_SWAP_TOOLS) push_swap.h
