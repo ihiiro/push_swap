@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_tools_0.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 17:49:16 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/26 17:02:39 by yel-yaqi         ###   ########.fr       */
+/*   Created: 2024/01/26 18:47:50 by yel-yaqi          #+#    #+#             */
+/*   Updated: 2024/01/26 19:11:22 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdlib.h>
+#include "../push_swap.h"
 
-#include <stdio.h>
-int	main(int argc, char **argv)
-{
-	t_list	*stack_a;
-	t_list	*stack_b;
+// int	sublist_len(t_list *ptr)
+// {
+// 	int	len;
 
-	if (argc == 1)
-		exit(EXIT_FAILURE);
-	stack_a = NULL;
-	stack_b = NULL;
-	verify(argv + 1);
-	push(argv + 1, &stack_a);
-	merge_sort(&stack_a, &stack_a);
-	ft_lstclear(&stack_a);
-	return (EXIT_SUCCESS);
-}
+// 	len = 0;
+// 	while (ptr && ptr->next && ptr->integer < ptr->next->integer)
+// 	{
+// 		len++;
+// 		ptr = ptr->next;
+// 	}
+// 	return (len);
+// }

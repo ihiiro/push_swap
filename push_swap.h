@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:48:42 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/21 16:54:08 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:51:38 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,15 @@ void	rrotate_a(t_list **stack_a, int mode);
 void	rrotate_b(t_list **stack_b, int mode);
 void	rrotate_ab(t_list **stack_a, t_list **stack_b);
 
+void	pop_to_bottom(t_list **seq_start, int seq_span);
+void	merge_sort(t_list **head, t_list **stack_b);
+
 long	satoi(char *str);
 
 t_list	*ft_lstnew(int integer);
 
 int		ft_lstsize(t_list *lst);
+
+int		sublist_len(t_list *ptr);
 
 #endif
