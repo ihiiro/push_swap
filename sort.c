@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:21:47 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/27 16:23:21 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/27 17:14:27 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	pop_to_bottom(t_list **head, int span)
 {
 	while (span--)
-		rotate_a(head, 0);
+		rotate_a(head, 1);
 }
 #include <stdio.h>
 static int	sorted(t_list *head)
@@ -45,30 +45,32 @@ static int	push_top_2_lists_to_b(t_list **stack_a, t_list **stack_b)
 
 static void	push_b_max_to_a(t_list **stack_a, t_list **stack_b)
 {
-	(void)stack_a;
-	int	max;
-	int	rot;
-	int	size;
+	t_list	*ptr;
+	int		rot_max;
+	int		rot;
+	int		max;
 
 	rot = 0;
 	max = (*stack_b)->integer;
-	size = ft_lstsize(*stack_b);
-	// while (rot < size - 1)
-	// {
-	// 	if ((*stack_b)->integer > max)
-	// 		max = (*stack_b)->integer;
-	// 	rot++;
-	// 	// rotate_b(stack_b, 1);
-	// 	for (t_list *ptr = *stack_b; ptr; ptr = ptr->next)
-	// 		printf("%d, ", ptr->integer);
-	// 	printf("\n");
-	// }
-	// rotate_b(stack_b, 1);
-	printf("%d", (*stack_b)->last->integer);
-	// for (t_list *ptr = *stack_b; ptr; ptr = ptr->next)
-	// 		printf("%d, ", ptr->integer);
-	// printf("%d", max); 
-	exit(0);
+	ptr = *stack_b;
+	rot_max = 0;
+	while (ptr)
+	{
+		if (ptr->integer > max)
+		{
+			rot_max = rot;
+			max = ptr->integer;
+		}
+		rot++;
+		ptr = ptr->next;
+	}
+	// printf("rot_max=%d\n", rot_max);
+	while (rot_max)
+	{
+		rotate_b(stack_b, 1);
+		rot_max--;
+	}
+	push_a(stack_a, stack_b);
 }
 
 void	merge_sort(t_list **stack_a, t_list **stack_b)
@@ -83,4 +85,6 @@ void	merge_sort(t_list **stack_a, t_list **stack_b)
 		if (!(sorted(*stack_a) && !ft_lstsize(*stack_b)))
 			pop_to_bottom(stack_a, list_size);
 	}
+	// for (t_list *ptr = *stack_a; ptr; ptr = ptr->next)
+	// 	printf("%d, ", ptr->integer);
 }

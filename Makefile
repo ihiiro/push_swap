@@ -6,7 +6,7 @@
 #    By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 17:42:48 by yel-yaqi          #+#    #+#              #
-#    Updated: 2024/01/26 18:51:16 by yel-yaqi         ###   ########.fr        #
+#    Updated: 2024/01/27 16:29:46 by yel-yaqi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OPS = ops/swap.c ops/push.c ops/rotate.c ops/rrotate.c
 PUSH_SWAP_TOOLS = push_swap_tools/push_swap_tools_0.c
 
 all: $(NAME)
-$(NAME): main.c sort.c $(PARSING) $(OPS) $(PUSH_SWAP_TOOLS) push_swap.h
+$(NAME): main.c list.c sort.c $(PARSING) $(OPS) $(PUSH_SWAP_TOOLS) push_swap.h
 	cc $(CFLAGS) main.c sort.c $(PARSING) $(OPS) $(PUSH_SWAP_TOOLS) list.c -o $@
 clean:
 	rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:21:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/27 16:19:59 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/27 16:41:36 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,32 @@
 
 void	rotate_a(t_list **stack_a, int mode)
 {
-	(*stack_a)->last->next = (*stack_a);
-	(*stack_a)->last = (*stack_a)->last->next;
-	(*stack_a)->next->last = (*stack_a)->last;
-	(*stack_a) = (*stack_a)->next;
-	(*stack_a)->last->next = NULL;
+	t_list	*last;
+	t_list	*stack_a_next;
+
+	last = *stack_a;
+	stack_a_next = (*stack_a)->next;
+	while (last->next)
+		last = last->next;
+	last->next = (*stack_a);
+	(*stack_a)->next = NULL;
+	(*stack_a) = stack_a_next;
 	if (mode)
 		write(STDOUT_FILENO, "ra\n", 3);
 }
 
 void	rotate_b(t_list **stack_b, int mode)
 {
-	(*stack_b)->last->next = (*stack_b);
-	(*stack_b)->last = (*stack_b)->last->next;
-	(*stack_b)->next->last = (*stack_b)->last;
-	(*stack_b) = (*stack_b)->next;
-	(*stack_b)->last->next = NULL;
+	t_list	*last;
+	t_list	*stack_b_next;
+
+	last = *stack_b;
+	stack_b_next = (*stack_b)->next;
+	while (last->next)
+		last = last->next;
+	last->next = (*stack_b);
+	(*stack_b)->next = NULL;
+	(*stack_b) = stack_b_next;
 	if (mode)
 		write(STDOUT_FILENO, "rb\n", 3);
 }

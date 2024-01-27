@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:48:42 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/27 15:09:22 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/01/27 16:41:53 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ typedef struct s_list
 {
 	int				integer;
 	struct s_list	*next;
-	struct s_list	*last;
 }					t_list;
 
 void	verify(char **input);
