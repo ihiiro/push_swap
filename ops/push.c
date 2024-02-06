@@ -6,14 +6,13 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:01:52 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/27 16:22:05 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:53:26 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <unistd.h>
 
-#include <stdio.h>
 void	push_a(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*stack_b_next;

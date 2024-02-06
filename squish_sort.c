@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:21:47 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/06 17:12:51 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:50:26 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,11 @@ void	push_to_b(t_list **stack_a, t_list **stack_b)
 
 	x = 0;
 	y = 16;
+	if (ft_lstsize(*stack_a) >= 500)
+		y = 32;
 	while (*stack_a)
 	{
-		if ((*stack_a)->index < y)
+		if ((*stack_a)->index <= x)
 		{
 			push_b(stack_a, stack_b);
 			x++;
@@ -62,10 +64,38 @@ void	push_to_b(t_list **stack_a, t_list **stack_b)
 		else if ((*stack_a)->index < x + y)
 		{
 			push_b(stack_a, stack_b);
-			rotate_b(stack_b, 0);
+			rotate_b(stack_b, 1);
 			x++;
 		}
 		else
-			push_b(stack_a, stack_b);
+			rotate_a(stack_a, 1);
 	}
+}
+
+void	push_max_to_a(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*ptr;
+	int		max_index;
+	int		d;
+
+	max_index = ft_lstsize(*stack_b) - 1;
+	ptr = *stack_b;
+	d = 0;
+	while (ptr)
+	{
+		if (ptr->index == max_index)
+			break ;
+		ptr = ptr->next;
+		d++;
+	}
+	if (d > (max_index) / 2)
+	{
+		d = (max_index + 1) - d;
+		while (d--)
+			rrotate_b(stack_b, 1);
+	}
+	else
+		while (d--)
+			rotate_b(stack_b, 1);
+	push_a(stack_a, stack_b);
 }
