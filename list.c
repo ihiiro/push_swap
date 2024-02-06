@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 22:19:37 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/27 16:42:49 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:59:55 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_list	*ft_lstnew(int integer)
 	if (!node)
 		return (NULL);
 	node->integer = integer;
+	node->index = -1;
 	node->next = NULL;
 	return (node);
 }

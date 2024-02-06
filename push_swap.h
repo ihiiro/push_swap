@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:48:42 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/06 15:27:08 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:09:00 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct s_list
 {
 	int				integer;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 
@@ -41,6 +42,9 @@ void	rotate_ab(t_list **stack_a, t_list **stack_b);
 void	rrotate_a(t_list **stack_a, int mode);
 void	rrotate_b(t_list **stack_b, int mode);
 void	rrotate_ab(t_list **stack_a, t_list **stack_b);
+
+void	index_set(t_list *stack_a);
+void	push_to_b(t_list **stack_a, t_list **stack_b);
 
 long	satoi(char *str);
 
