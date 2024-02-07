@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:49:16 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/07 12:08:32 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/07 20:52:26 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int	main(int argc, char **argv)
 	if (sorted(stack_a))
 	{
 		ft_lstclear(&stack_a);
+		exit(EXIT_SUCCESS);
+	}
+	if (ft_lstsize(stack_a) < 6)
+	{
+		small_sort(&stack_a, &stack_b);
 		exit(EXIT_SUCCESS);
 	}
 	index_set(stack_a);

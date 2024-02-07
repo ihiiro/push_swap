@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:48:42 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/07 12:02:39 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/07 21:00:52 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	rrotate_ab(t_list **stack_a, t_list **stack_b);
 void	index_set(t_list *stack_a);
 void	push_to_b(t_list **stack_a, t_list **stack_b);
 void	push_max_to_a(t_list **stack_a, t_list **stack_b);
+
+void	small_sort(t_list **stack_a, t_list **stack_b);
 
 long	satoi(char *str);
 
