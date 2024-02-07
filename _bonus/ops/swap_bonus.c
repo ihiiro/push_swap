@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 00:19:15 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/06 19:37:24 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:57:59 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ void	swap_ab(t_list **stack_a, t_list **stack_b)
 {
 	swap_a(stack_a, 0);
 	swap_b(stack_b, 0);
-	write(STDOUT_FILENO, "ss\n", 3);
 }

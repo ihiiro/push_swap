@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:48:42 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/06 18:52:49 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/07 12:02:39 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ long	satoi(char *str);
 t_list	*ft_lstnew(int integer);
 
 int		ft_lstsize(t_list *lst);
+
+int		sorted(t_list *stack_a);
 
 #endif

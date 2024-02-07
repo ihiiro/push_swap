@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:48:42 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/06 19:38:12 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/07 12:06:30 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,18 @@ void	rrotate_b(t_list **stack_b, int mode);
 void	rrotate_ab(t_list **stack_a, t_list **stack_b);
 
 void	index_set(t_list *stack_a);
-void	push_to_b(t_list **stack_a, t_list **stack_b);
-void	push_max_to_a(t_list **stack_a, t_list **stack_b);
+
+void	store_ops(t_list **ops);
+void	exec_ops(t_list *ops, t_list **stack_a, t_list **stack_b);
 
 long	satoi(char *str);
 
 t_list	*ft_lstnew(int integer);
 
 int		ft_lstsize(t_list *lst);
+
+int		strictcmp(char *str0, char *str1);
+
+int		sorted(t_list *stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:21:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/06 19:37:14 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:57:42 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,4 @@ void	rotate_ab(t_list **stack_a, t_list **stack_b)
 {
 	rotate_a(stack_a, 0);
 	rotate_b(stack_b, 0);
-	write(STDOUT_FILENO, "rr\n", 3);
 }
