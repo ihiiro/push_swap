@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 16:21:47 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/07 12:06:19 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:03:18 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	push_to_b(t_list **stack_a, t_list **stack_b)
 			push_b(stack_a, stack_b);
 			x++;
 		}
-		else if ((*stack_a)->index < x + y)
+		else if ((*stack_a)->index <= x + y)
 		{
 			push_b(stack_a, stack_b);
 			rotate_b(stack_b, 1);
