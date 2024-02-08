@@ -6,7 +6,7 @@
 #    By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/17 17:42:48 by yel-yaqi          #+#    #+#              #
-#    Updated: 2024/02/07 19:21:32 by yel-yaqi         ###   ########.fr        #
+#    Updated: 2024/02/08 16:31:32 by yel-yaqi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ all: $(NAME)
 $(NAME): main.c small_sort.c list.c squish_sort.c $(PARSING) $(OPS) $(PUSH_SWAP_TOOLS) push_swap.h
 	cc $(CFLAGS) main.c small_sort.c squish_sort.c $(PARSING) $(OPS) $(PUSH_SWAP_TOOLS) list.c -o $@
 bonus: $(NAME_BONUS)
-$(NAME_BONUS): _bonus/main_bonus.c _bonus/small_sort_bonus.c _bonus/checker_bonus.c _bonus/helpers_bonus.c _bonus/list_bonus.c _bonus/squish_sort_bonus.c $(PARSING_BONUS) $(OPS_BONUS) $(GET_NEXT_LINE_BONUS) _bonus/push_swap_bonus.h _bonus/get_next_line/get_next_line.h
-	cc $(CFLAGS) _bonus/main_bonus.c _bonus/small_sort_bonus.c _bonus/checker_bonus.c _bonus/helpers_bonus.c _bonus/squish_sort_bonus.c $(PARSING_BONUS) $(OPS_BONUS) $(GET_NEXT_LINE_BONUS) _bonus/list_bonus.c -o checker
+$(NAME_BONUS): _bonus/main_bonus.c _bonus/checker_bonus.c _bonus/helpers_bonus.c _bonus/list_bonus.c _bonus/squish_sort_bonus.c $(PARSING_BONUS) $(OPS_BONUS) $(GET_NEXT_LINE_BONUS) _bonus/push_swap_bonus.h _bonus/get_next_line/get_next_line.h
+	cc $(CFLAGS) _bonus/main_bonus.c _bonus/checker_bonus.c _bonus/helpers_bonus.c _bonus/squish_sort_bonus.c $(PARSING_BONUS) $(OPS_BONUS) $(GET_NEXT_LINE_BONUS) _bonus/list_bonus.c -o checker
 clean:
 	rm -f $(NAME)
 	rm -f $(NAME_BONUS)
