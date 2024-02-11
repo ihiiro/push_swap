@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:59:45 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/07 11:57:52 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:29:35 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rrotate_a(t_list **stack_a, int mode)
 {
 	t_list	*ptr;
 
-	if (!(*stack_a)->next)
+	if (!(*stack_a) || !(*stack_a)->next)
 		return ;
 	ptr = (*stack_a);
 	while (ptr->next->next)
@@ -33,7 +33,7 @@ void	rrotate_b(t_list **stack_b, int mode)
 {
 	t_list	*ptr;
 
-	if (!(*stack_b)->next)
+	if (!(*stack_b) || !(*stack_b)->next)
 		return ;
 	ptr = (*stack_b);
 	while (ptr->next->next)

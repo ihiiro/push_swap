@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 18:01:55 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/01/19 00:06:55 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:31:30 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	verify_category(char **input, int (*verifier)(char *))
 		j = 0;
 		while (input[i][j])
 		{
-			while ((input[i][j] >= 9 && input[i][j] <= 13) || input[i][j] == 32)
+			while (input[i][j] == 32)
 				j++;
 			if (!verifier(&input[i][j]))
 				exitf();
@@ -58,7 +58,7 @@ static void	verify_category(char **input, int (*verifier)(char *))
 				j++;
 			while (input[i][j] >= '0' && input[i][j] <= '9')
 				j++;
-			while ((input[i][j] >= 9 && input[i][j] <= 13) || input[i][j] == 32)
+			while (input[i][j] == 32)
 				j++;
 		}
 		i++;

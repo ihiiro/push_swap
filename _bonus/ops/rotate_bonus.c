@@ -6,7 +6,7 @@
 /*   By: yel-yaqi <yel-yaqi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 15:21:46 by yel-yaqi          #+#    #+#             */
-/*   Updated: 2024/02/07 11:57:42 by yel-yaqi         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:29:04 by yel-yaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate_a(t_list **stack_a, int mode)
 	t_list	*last;
 	t_list	*stack_a_next;
 
-	if (!(*stack_a)->next)
+	if (!(*stack_a) || !(*stack_a)->next)
 		return ;
 	last = *stack_a;
 	stack_a_next = (*stack_a)->next;
@@ -36,7 +36,7 @@ void	rotate_b(t_list **stack_b, int mode)
 	t_list	*last;
 	t_list	*stack_b_next;
 
-	if (!(*stack_b)->next)
+	if (!(*stack_b) || !(*stack_b)->next)
 		return ;
 	last = *stack_b;
 	stack_b_next = (*stack_b)->next;
